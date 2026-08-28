@@ -1,5 +1,7 @@
 # moissanite-tools
 
+![Moissanite grading and size chart](assets/og-moissanite-grading.png)
+
 Grading reference and carat↔millimetre conversion for **moissanite** — calculated, not copied.
 
 ## Why this exists
