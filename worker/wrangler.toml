@@ -1,0 +1,8 @@
+name = "fitiny-moissanite-mcp"
+main = "worker.js"
+compatibility_date = "2026-08-01"
+workers_dev = false
+
+[[routes]]
+pattern = "mcp.fitiny.com"
+custom_domain = true

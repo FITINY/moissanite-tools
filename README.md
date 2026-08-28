@@ -62,6 +62,18 @@ compareAtWeight(1);
 
 ### MCP server
 
+Two ways to run it.
+
+**Hosted — nothing to install.** Point any MCP client at:
+
+```
+https://mcp.fitiny.com/mcp
+```
+
+Listed in the official MCP Registry as `com.fitiny/moissanite-tools`.
+
+**Local — stdio:**
+
 ```bash
 node mcp/server.js
 ```
