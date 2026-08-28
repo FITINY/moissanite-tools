@@ -1,0 +1,30 @@
+/** Plain assertions — no test framework needed. */
+import assert from 'assert';
+import { caratFromMm, mmFromCarat, compareAtWeight } from '../src/conversion.js';
+
+// Published diamond reference points; tolerance covers cut variation.
+const DIAMOND = [[0.1, 3.0], [0.5, 5.2], [1, 6.5], [2, 8.0], [5, 11.0]];
+for (const [ct, mm] of DIAMOND) {
+  const got = mmFromCarat(ct, 'diamond');
+  assert.ok(Math.abs(got - mm) / mm < 0.04, `${ct}ct diamond: expected ~${mm}mm, got ${got.toFixed(2)}mm`);
+}
+
+// Round-trip must be exact.
+for (const mm of [3, 6.5, 12]) {
+  for (const stone of ['moissanite', 'diamond', 'cz']) {
+    const back = mmFromCarat(caratFromMm(mm, stone), stone);
+    assert.ok(Math.abs(back - mm) < 1e-6, `round-trip failed for ${mm}mm ${stone}`);
+  }
+}
+
+// The whole point: moissanite is larger than diamond at equal weight.
+const one = compareAtWeight(1);
+assert.ok(one.moissanite_mm > one.diamond_mm, 'moissanite should be larger than diamond at 1ct');
+assert.ok(one.diamond_mm > one.cz_mm, 'diamond should be larger than CZ at 1ct');
+
+// Bad input is rejected rather than returning NaN.
+assert.throws(() => mmFromCarat(0, 'moissanite'));
+assert.throws(() => caratFromMm(-1, 'moissanite'));
+assert.throws(() => mmFromCarat(1, 'ruby'));
+
+console.log('all conversion tests passed');

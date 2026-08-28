@@ -1,0 +1,13 @@
+{
+  "name": "moissanite-tools",
+  "version": "1.0.0",
+  "description": "Grading reference and density-corrected carat/mm conversion for moissanite, diamond and cubic zirconia",
+  "type": "module",
+  "main": "src/conversion.js",
+  "exports": { ".": "./src/conversion.js", "./data": "./data/grading.json" },
+  "files": ["src", "data", "mcp", "README.md", "LICENSE"],
+  "keywords": ["moissanite", "diamond", "cubic-zirconia", "carat", "gemstone", "jewellery", "gia", "mcp"],
+  "license": "MIT",
+  "homepage": "https://fitiny.com/pages/moissanite-grading",
+  "scripts": { "test": "node test/conversion.test.js" }
+}

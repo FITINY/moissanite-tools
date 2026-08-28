@@ -1,0 +1,55 @@
+{
+  "$comment": "Moissanite grading reference. Colour and clarity scales follow the GIA diamond grading system, which the moissanite trade has adopted. Values are descriptive only and are not a GIA certification.",
+  "version": "1.0.0",
+  "updated": "2026-08-28",
+  "colour": {
+    "scale": "GIA D-Z (moissanite is commonly sold in the D-K range)",
+    "grades": [
+      { "grade": "D", "band": "Colourless", "hex": "#ffffff", "tint": "none", "note": "Highest grade. No detectable colour under 10x magnification against a white background." },
+      { "grade": "E", "band": "Colourless", "hex": "#fefefc", "tint": "none", "note": "Minute traces of colour, detectable only by a trained grader." },
+      { "grade": "F", "band": "Colourless", "hex": "#fdfdf9", "tint": "none", "note": "Slight colour detectable by an expert; still classed as colourless." },
+      { "grade": "G", "band": "Near colourless", "hex": "#fdfcf3", "tint": "very faint warm", "note": "Colour noticeable only when compared side by side with D-F." },
+      { "grade": "H", "band": "Near colourless", "hex": "#fcfaec", "tint": "faint warm", "note": "Appears colourless face-up in most settings." },
+      { "grade": "I", "band": "Near colourless", "hex": "#fbf7e2", "tint": "faint warm", "note": "Slight warmth visible face-up to a careful eye." },
+      { "grade": "J", "band": "Near colourless", "hex": "#f9f3d6", "tint": "noticeable warm", "note": "Warmth visible face-up, more so in larger stones." },
+      { "grade": "K", "band": "Faint colour", "hex": "#f6eec6", "tint": "visible warm", "note": "Faint yellow visible to the unaided eye; often paired with yellow gold." }
+    ]
+  },
+  "clarity": {
+    "scale": "GIA FL-I3 (most moissanite sold is VVS or better)",
+    "grades": [
+      { "grade": "FL", "name": "Flawless", "visible_10x": "No inclusions or blemishes", "eye_clean": true, "typical_for_moissanite": false },
+      { "grade": "IF", "name": "Internally Flawless", "visible_10x": "No inclusions; minor surface blemishes only", "eye_clean": true, "typical_for_moissanite": false },
+      { "grade": "VVS1", "name": "Very Very Slightly Included 1", "visible_10x": "Inclusions extremely difficult to see at 10x", "eye_clean": true, "typical_for_moissanite": true },
+      { "grade": "VVS2", "name": "Very Very Slightly Included 2", "visible_10x": "Inclusions very difficult to see at 10x", "eye_clean": true, "typical_for_moissanite": true },
+      { "grade": "VS1", "name": "Very Slightly Included 1", "visible_10x": "Inclusions difficult to see at 10x", "eye_clean": true, "typical_for_moissanite": false },
+      { "grade": "VS2", "name": "Very Slightly Included 2", "visible_10x": "Inclusions somewhat easy to see at 10x", "eye_clean": true, "typical_for_moissanite": false },
+      { "grade": "SI1", "name": "Slightly Included 1", "visible_10x": "Inclusions noticeable at 10x", "eye_clean": "usually", "typical_for_moissanite": false },
+      { "grade": "SI2", "name": "Slightly Included 2", "visible_10x": "Inclusions easily noticeable at 10x", "eye_clean": "sometimes", "typical_for_moissanite": false }
+    ]
+  },
+  "optical": {
+    "$comment": "Published gemmological constants. These are what actually separate moissanite from diamond.",
+    "moissanite": {
+      "refractive_index": [2.65, 2.69],
+      "dispersion": 0.104,
+      "mohs_hardness": 9.25,
+      "density_g_cm3": 3.21,
+      "birefringent": true
+    },
+    "diamond": {
+      "refractive_index": [2.417, 2.419],
+      "dispersion": 0.044,
+      "mohs_hardness": 10,
+      "density_g_cm3": 3.52,
+      "birefringent": false
+    },
+    "cubic_zirconia": {
+      "refractive_index": [2.15, 2.18],
+      "dispersion": 0.06,
+      "mohs_hardness": 8.25,
+      "density_g_cm3": 5.7,
+      "birefringent": false
+    }
+  }
+}
