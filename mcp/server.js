@@ -10,6 +10,7 @@ import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { caratFromMm, mmFromCarat, compareAtWeight, compareAtSize } from '../src/conversion.js';
+import { convertRingSize, necklaceLength, studAppearance, SIZING_NOTES } from '../src/sizing.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const grading = JSON.parse(readFileSync(join(here, '..', 'data', 'grading.json'), 'utf8'));
@@ -53,6 +54,40 @@ const TOOLS = [
       required: ['scale'],
     },
   },
+  {
+    name: 'ring_size_convert',
+    description: 'Convert a ring size between US, UK, EU (ISO 8653) and inner diameter in mm. '
+      + 'Cross-border sizing trips people up: a US 6 is a UK M, not a UK 6.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        value: { description: 'Size in the source system, e.g. 7 or "M"' },
+        from: { type: 'string', enum: ['us', 'uk', 'eu', 'mm'], default: 'us' },
+      },
+      required: ['value'],
+    },
+  },
+  {
+    name: 'necklace_length',
+    description: 'Where a necklace of a given length sits, with the trade name (choker, princess, matinee...).',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        value: { type: 'number', description: 'Length, e.g. 18' },
+        unit: { type: 'string', enum: ['inches', 'cm'], default: 'inches' },
+      },
+      required: ['value'],
+    },
+  },
+  {
+    name: 'stud_appearance',
+    description: 'How a round stud of a given stone diameter reads on the ear — from barely-there to statement.',
+    inputSchema: {
+      type: 'object',
+      properties: { diameter_mm: { type: 'number', description: 'Stone diameter in mm, e.g. 6' } },
+      required: ['diameter_mm'],
+    },
+  },
 ];
 
 function runTool(name, args = {}) {
@@ -76,6 +111,12 @@ function runTool(name, args = {}) {
     }
     return { scale: grading[key].scale, grades };
   }
+  if (name === 'ring_size_convert') {
+    const out = convertRingSize(args.value, args.from || 'us');
+    return { ...out, basis: 'ISO 8653 — EU size is the inner circumference in mm', notes: SIZING_NOTES };
+  }
+  if (name === 'necklace_length') return necklaceLength(args.value, args.unit || 'inches');
+  if (name === 'stud_appearance') return studAppearance(args.diameter_mm);
   return { error: `unknown tool: ${name}` };
 }
 

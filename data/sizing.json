@@ -1,0 +1,54 @@
+{
+  "$comment": "Ring and chain sizing references. Ring sizes follow ISO 8653: the numeric size in the ISO/EU system IS the inner circumference in millimetres. US/UK conversions are the standard trade equivalents.",
+  "version": "1.0.0",
+  "ring_sizes": {
+    "basis": "ISO 8653 — EU size = inner circumference in mm",
+    "rows": [
+      { "us": 3,   "uk": "F",   "eu": 44.2, "diameter_mm": 14.1 },
+      { "us": 3.5, "uk": "G",   "eu": 45.5, "diameter_mm": 14.5 },
+      { "us": 4,   "uk": "H",   "eu": 46.8, "diameter_mm": 14.9 },
+      { "us": 4.5, "uk": "I",   "eu": 48.0, "diameter_mm": 15.3 },
+      { "us": 5,   "uk": "J",   "eu": 49.3, "diameter_mm": 15.7 },
+      { "us": 5.5, "uk": "L",   "eu": 50.6, "diameter_mm": 16.1 },
+      { "us": 6,   "uk": "M",   "eu": 51.9, "diameter_mm": 16.5 },
+      { "us": 6.5, "uk": "N",   "eu": 53.1, "diameter_mm": 16.9 },
+      { "us": 7,   "uk": "O",   "eu": 54.4, "diameter_mm": 17.3 },
+      { "us": 7.5, "uk": "P",   "eu": 55.7, "diameter_mm": 17.7 },
+      { "us": 8,   "uk": "Q",   "eu": 57.0, "diameter_mm": 18.1 },
+      { "us": 8.5, "uk": "Q½",  "eu": 58.3, "diameter_mm": 18.5 },
+      { "us": 9,   "uk": "R½",  "eu": 59.5, "diameter_mm": 18.9 },
+      { "us": 9.5, "uk": "S½",  "eu": 60.8, "diameter_mm": 19.4 },
+      { "us": 10,  "uk": "T½",  "eu": 62.1, "diameter_mm": 19.8 },
+      { "us": 11,  "uk": "V½",  "eu": 64.6, "diameter_mm": 20.6 },
+      { "us": 12,  "uk": "X½",  "eu": 67.2, "diameter_mm": 21.4 }
+    ],
+    "notes": [
+      "Measure at the end of the day — fingers swell and can differ by half a size.",
+      "Wide bands (over 6mm) sit tighter; go up a half size.",
+      "Cold hands measure smaller. Do not size a ring in winter for summer wear."
+    ]
+  },
+  "necklace_lengths": {
+    "rows": [
+      { "inches": 14, "cm": 35.6, "name": "Collar",     "sits": "Tight around the base of the neck" },
+      { "inches": 16, "cm": 40.6, "name": "Choker",     "sits": "At the base of the neck" },
+      { "inches": 18, "cm": 45.7, "name": "Princess",   "sits": "On the collarbone — the most common length" },
+      { "inches": 20, "cm": 50.8, "name": "Matinee",    "sits": "A few cm below the collarbone" },
+      { "inches": 24, "cm": 61.0, "name": "Matinee",    "sits": "At the top of the bust" },
+      { "inches": 30, "cm": 76.2, "name": "Opera",      "sits": "At or below the bust" },
+      { "inches": 36, "cm": 91.4, "name": "Rope",       "sits": "Below the bust; can be doubled" }
+    ]
+  },
+  "stud_sizes": {
+    "$comment": "How a round stud reads on the ear. Diameter is the stone, not the setting.",
+    "rows": [
+      { "diameter_mm": 3,   "reads_as": "Barely there — a point of light, reads as a tiny accent" },
+      { "diameter_mm": 4,   "reads_as": "Subtle everyday sparkle, disappears at conversational distance" },
+      { "diameter_mm": 5,   "reads_as": "Clearly visible but understated" },
+      { "diameter_mm": 6,   "reads_as": "The most popular size — visible without being a statement" },
+      { "diameter_mm": 6.5, "reads_as": "Reads as a classic one-carat look in diamond terms" },
+      { "diameter_mm": 8,   "reads_as": "Statement size; needs a secure back on a heavier stone" },
+      { "diameter_mm": 10,  "reads_as": "Bold. Best in lightweight settings or magnetic backs" }
+    ]
+  }
+}

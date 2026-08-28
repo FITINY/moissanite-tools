@@ -25,9 +25,27 @@ looks like a different size depending on the stone.
 ```
 data/grading.json    GIA colour (D–K) and clarity (FL–SI) scales, plus published
                      optical constants for moissanite / diamond / cubic zirconia
+data/sizing.json     ISO 8653 ring sizes (US/UK/EU/mm), necklace lengths, stud sizes
 src/conversion.js    carat ↔ mm for round brilliant cut, density-corrected
-mcp/server.js        Model Context Protocol server so an AI agent can query the above
+src/sizing.js        ring size conversion, necklace length and stud appearance lookups
+mcp/server.js        Model Context Protocol server exposing all of the above
 ```
+
+## Ring sizes
+
+Cross-border ring buying goes wrong because the systems are unrelated: **a US 6 is a UK M**,
+not a UK 6. EU sizes under ISO 8653 are simply the inner circumference in millimetres.
+
+| US | UK | EU | Inner Ø |
+|---:|:--|---:|---:|
+| 5 | J | 49.3 | 15.7 mm |
+| 6 | M | 51.9 | 16.5 mm |
+| 7 | O | 54.4 | 17.3 mm |
+| 8 | Q | 57.0 | 18.1 mm |
+| 9 | R½ | 59.5 | 18.9 mm |
+
+Sizes that aren't on the chart return the nearest listed size flagged `exact: false`,
+rather than inventing a value.
 
 ## Usage
 
@@ -48,7 +66,16 @@ compareAtWeight(1);
 node mcp/server.js
 ```
 
-Exposes three tools: `carat_to_mm`, `mm_to_carat`, `grading_scale`.
+Exposes six tools:
+
+| Tool | Answers |
+|---|---|
+| `carat_to_mm` | How wide is a 1 ct moissanite? |
+| `mm_to_carat` | What does a 6.5 mm stone weigh in each material? |
+| `grading_scale` | What does VVS1 / D colour actually mean? |
+| `ring_size_convert` | What is a UK M in US sizing? |
+| `necklace_length` | Where does an 18" necklace sit? |
+| `stud_appearance` | How big does a 6 mm stud read on the ear? |
 
 ## The maths
 

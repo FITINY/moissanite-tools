@@ -28,3 +28,23 @@ assert.throws(() => caratFromMm(-1, 'moissanite'));
 assert.throws(() => mmFromCarat(1, 'ruby'));
 
 console.log('all conversion tests passed');
+
+// --- sizing ---
+import { convertRingSize, necklaceLength, studAppearance } from '../src/sizing.js';
+
+// The classic cross-border trap.
+assert.strictEqual(convertRingSize(6, 'us').uk, 'M', 'US 6 must map to UK M');
+assert.strictEqual(convertRingSize('M', 'uk').us, 6, 'UK M must map to US 6');
+
+// ISO 8653: EU size is the circumference, so diameter = circumference / pi.
+for (const r of [convertRingSize(7, 'us'), convertRingSize(9, 'us')]) {
+  assert.ok(Math.abs(r.eu / Math.PI - r.diameter_mm) < 0.15, `ISO mismatch at US ${r.us}`);
+}
+
+// Off-chart input must be flagged, not silently rounded into a claim.
+assert.strictEqual(convertRingSize(6.2, 'us').exact, false);
+
+assert.strictEqual(necklaceLength(18).name, 'Princess');
+assert.ok(studAppearance(6).reads_as.length > 10);
+
+console.log('all sizing tests passed');
